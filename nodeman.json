@@ -1,0 +1,6 @@
+{   
+    "watch": ["src"],  
+    "ext": "js,json,njk",  
+    "ignore": [],  
+    "exec": "node ./src/index"
+}

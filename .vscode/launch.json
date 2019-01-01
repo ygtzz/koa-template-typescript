@@ -1,0 +1,52 @@
+{
+    // 使用 IntelliSense 了解相关属性。 
+    // 悬停以查看现有属性的描述。
+    // 欲了解更多信息，请访问: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "node",
+            "request": "attach",
+            "name": "Attach: Nodemon",
+            "processId": "${command:PickProcess}", //选择nodejs进程Id，不要选择nodemon进程Id
+            "restart": true,
+            "protocol": "inspector",
+        },
+        {
+            "name": "Launch: index",
+            "type": "node",
+            "request": "launch",
+            "program": "${workspaceFolder}/src/index.js",
+            "env": {
+                "NODE_ENV": "development"
+            }
+        },
+        {
+            "name": "Launch: NPM",
+            "type": "node",
+            "request": "launch",
+            "runtimeExecutable": "npm",
+            "runtimeArgs": [
+                "run-script", "dev"    
+            ]
+        },
+        {
+            "name": "Launch: nodemon",
+            "type": "node",
+            "request": "launch",
+            "runtimeExecutable": "nodemon",
+            "args": ["${workspaceRoot}/src/index.js"],
+            "restart": true,
+            "protocol": "inspector",    //相当于--inspect了
+            "sourceMaps": true,
+            "console": "integratedTerminal",
+            "internalConsoleOptions": "neverOpen",
+            "runtimeArgs": [    //对应nodemon --inspect之后除了启动文件之外的其他配置
+             
+            ],
+            "env": {
+                "NODE_ENV": "development"
+            }
+        }
+    ]
+}

@@ -1,12 +1,3 @@
-// const path = require('path');
-// const Koa = require('koa');
-// const router = require('./router');
-// const koaNunjucks = require('koa-nunjucks-2');
-
-// const static = require('koa-static');
-// const gzip = require('koa-gzip');
-// const config = require('../config');
-
 /// <reference path="../typings/index.d.ts" />
 
 import * as path from 'path';
@@ -22,11 +13,11 @@ const envCfg = config[config.env];
 const app = new Koa();
 
 
-// if(config.gzip){
-//    app.use(koaCompress({
-//       threshold: 1024
-//    }));
-// }
+if(config.gzip){
+   app.use(koaCompress({
+      threshold: 1024
+   }));
+}
 
 //静态文件
 app.use(koaStatic(envCfg.staticDirectory));

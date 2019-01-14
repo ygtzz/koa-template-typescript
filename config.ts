@@ -24,4 +24,4 @@ let config:Config = {
     }
 }
 
-export {config};
+export {config,Config};

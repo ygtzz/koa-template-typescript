@@ -1,7 +1,3 @@
-// const Router = require('koa-router');
-// const router = new Router();
-// const path = require('path');
-// const fs = require('fs');
 import * as Router from 'koa-router';
 import * as path from 'path';
 import * as fs from 'fs';

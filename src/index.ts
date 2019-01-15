@@ -5,7 +5,7 @@ import * as koaStatic from 'koa-static';
 import * as bodyParser from 'koa-bodyparser';
 import * as koaNunjucks from 'koa-nunjucks-2';
 import * as koaCompress from 'koa-compress';
-import * as config from '../typings/config';
+import * as config from '../build/config';
 
 const envCfg = config[config.env];
 const app = new Koa();

@@ -1,5 +1,3 @@
-/// <reference path="../typings/index.d.ts" />
-
 import * as path from 'path';
 import * as Koa from 'koa';
 import router from './router';
@@ -7,7 +5,7 @@ import * as koaStatic from 'koa-static';
 import * as bodyParser from 'koa-bodyparser';
 import * as koaNunjucks from 'koa-nunjucks-2';
 import * as koaCompress from 'koa-compress';
-import {config} from '../config';
+import * as config from '../typings/config';
 
 const envCfg = config[config.env];
 const app = new Koa();

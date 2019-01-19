@@ -11,7 +11,9 @@
             "*": [
                 "node_modules/*"
             ]
-        }
+        },
+        "listEmittedFiles": true,
+        "listFiles": true
     },
     "include": [
         "src/**/*",

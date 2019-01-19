@@ -5,11 +5,10 @@ import * as koaStatic from 'koa-static';
 import * as bodyParser from 'koa-bodyparser';
 import * as koaNunjucks from 'koa-nunjucks-2';
 import * as koaCompress from 'koa-compress';
-import * as config from '../build/config';
+import * as config from './config';
 
 const envCfg = config[config.env];
 const app = new Koa();
-
 
 if(config.gzip){
    app.use(koaCompress({

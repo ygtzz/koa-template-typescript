@@ -12,12 +12,12 @@ async function buildZip(base:string){
     const zipBase = path.join(__dirname,'../..');
     // 打包文件方式
     const list = [
-        {path: path.join(zipBase,'/src/controller/file.js'), name: 'file-download.js'},
+        {path: path.join(zipBase,'/dist/controller/file.js'), name: 'file-download.js'},
     ];
     for (let i = 0; i < list.length; i++) {
         zip.append(fs.createReadStream(list[i].path), { name: list[i].name })
     }
-    zip.directory('src/downloads/','');
+    zip.directory('dist/downloads/','');
    
     await zip.finalize();
 

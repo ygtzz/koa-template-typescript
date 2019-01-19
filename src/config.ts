@@ -1,6 +1,10 @@
-const path = require('path');
+import * as path from 'path';
 
-const config = {
+interface Config{
+    [key:string]: any
+}
+
+const config:Config = {
     env: process.env.NODE_ENV || 'development',
     gzip: false,
     template:{
@@ -20,4 +24,4 @@ const config = {
     }
 }
 
-export default config;
+export = config;

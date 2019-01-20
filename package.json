@@ -31,6 +31,7 @@
     "@types/koa-router": "^7.0.35",
     "@types/koa-static": "^4.0.0",
     "@types/node": "^10.12.18",
+    "child_process": "^1.0.2",
     "cross-env": "^5.2.0",
     "gulp": "^4.0.0",
     "gulp-typescript": "^5.0.0",

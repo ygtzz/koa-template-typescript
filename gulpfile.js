@@ -2,6 +2,8 @@ var gulp = require('gulp');
 var ts = require('gulp-typescript');
 var opn = require('opn');
 var shell = require('shelljs');
+var childProcess = require('child_process');
+var appp = 'fsdfsd';
 
 var tsProject = ts.createProject('tsconfig.json');
 
@@ -19,12 +21,18 @@ gulp.task('other', function(){
 });
 
 gulp.task('browser',function(cb){
-    opn('http://localhost:3100', {app: ['google chrome', '--incognito']});
-    cb();
+    setTimeout(function(){
+        opn('http://localhost:3100', {app: ['google chrome', '--incognito']});
+        cb();
+    },1000);
 });
 
 gulp.task('nodemon',function(cb){
-    shell.exec('nodemon ./dist/index.js');
+    // shell.exec('nodemon ./dist/index.js');
+    var child = childProcess.spawn('nodemon',['./dist/index.js']);
+    child.stdout.on('data',function(buffer){
+        console.log(buffer.toString("utf-8"));
+    });
     cb();
 });
 
@@ -33,4 +41,4 @@ gulp.task('watch', function() {
     gulp.watch('src/**/*.!(ts)', gulp.series('other'));
 });
 
-gulp.task('default', gulp.series('scripts','other',gulp.parallel('browser','nodemon')));
+gulp.task('default', gulp.series('scripts','other',gulp.parallel('nodemon','browser')));

@@ -5,9 +5,10 @@
   "main": "index.js",
   "scripts": {
     "dev": "cross-env NODE_ENV=development gulp",
-    "browser": "gulp browser",
+    "nodemon": "nodemon ./dist/index.js",
     "watch": "gulp watch",
-    "dev1": "tsc && cross-env NODE_ENV=development nodemon ./dist/src/index.js",
+    "browser": "gulp browser",
+    "tscdev": "tsc && cross-env NODE_ENV=development nodemon ./dist/src/index.js",
     "prod": "cross-env NODE_ENV=production node ./src/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },

@@ -27,7 +27,12 @@ gulp.task('browser',function(cb){
     },1000);
 });
 
-gulp.task('nodemon',function(cb){
+gulp.task('watch', function() {
+    gulp.watch('src/**/*.ts', gulp.series('scripts'));
+    gulp.watch('src/**/*.!(ts)', gulp.series('other'));
+});
+
+gulp.task('nodemonc',function(cb){
     // shell.exec('nodemon ./dist/index.js');
     var child = childProcess.spawn('nodemon',['./dist/index.js']);
     child.stdout.on('data',function(buffer){
@@ -36,9 +41,11 @@ gulp.task('nodemon',function(cb){
     cb();
 });
 
-gulp.task('watch', function() {
-    gulp.watch('src/**/*.ts', gulp.series('scripts'));
-    gulp.watch('src/**/*.!(ts)', gulp.series('other'));
+gulp.task('watchc',function(cb){
+    var child = childProcess.spawn('gulp',['watch']);
+    child.stdout.on('data',function(buffer){
+        console.log(buffer.toString('utf-8'));
+    });
 });
 
-gulp.task('default', gulp.series('scripts','other',gulp.parallel('nodemon','browser')));
+gulp.task('default', gulp.series('scripts','other',gulp.parallel('nodemonc','watchc','browser')));

@@ -1,5 +1,16 @@
 # koa-template
-a koa project template
+a koa project template use typescript
+
+## use
+
+```bash
+npm install
+#first start website
+npm run dev 
+#then watch ts files
+npm run watch
+#open chrome 
+```
 
 ## features
 
@@ -12,4 +23,6 @@ a koa project template
 - static files
 - file download
 - zip
+
+
 

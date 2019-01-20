@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "gulp && cross-env NODE_ENV=development nodemon ./dist/index.js",
+    "dev": "cross-env NODE_ENV=development gulp",
+    "browser": "gulp browser",
     "watch": "gulp watch",
     "dev1": "tsc && cross-env NODE_ENV=development nodemon ./dist/src/index.js",
     "prod": "cross-env NODE_ENV=production node ./src/index.js",
@@ -34,6 +35,8 @@
     "gulp": "^4.0.0",
     "gulp-typescript": "^5.0.0",
     "nodemon": "^1.18.9",
+    "opn": "^5.4.0",
+    "shelljs": "^0.8.3",
     "ts-node": "^7.0.1",
     "typescript": "^3.2.2"
   }

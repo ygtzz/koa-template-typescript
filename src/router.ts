@@ -4,6 +4,7 @@ import * as fs from 'fs';
 
 import user from './controller/user';
 import file from './controller/file';
+import home from './controller/home';
 
 const router = new Router();
 
@@ -50,6 +51,7 @@ const router = new Router();
 // const user = require('./controller/user');
 // const file = require('./controller/file');
 
+router.get('/',home.index);
 router.post('/user/login',user.login);
 router.get('/user/profile',user.profile);
 router.get('/user/template',user.template);

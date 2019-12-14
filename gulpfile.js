@@ -22,7 +22,8 @@ gulp.task('other', function(){
 
 gulp.task('browser',function(cb){
     setTimeout(function(){
-        opn('http://localhost:3100', {app: ['google chrome', '--incognito']});
+        // opn('http://localhost:3100', {app: ['google chrome', '--incognito']});
+        opn('http://localhost:80');
         cb();
     },1000);
 });
@@ -34,7 +35,8 @@ gulp.task('watch', function() {
 
 gulp.task('nodemonc',function(cb){
     // shell.exec('nodemon ./dist/index.js');
-    var child = childProcess.spawn('nodemon',['./dist/index.js']);
+    var nodemonCmd = (process.platform == 'win32') ? 'node_modules\\.bin\\nodemon.cmd' : 'nodemon';
+    var child = childProcess.spawn(nodemonCmd,['./dist/index.js']);
     child.stdout.on('data',function(buffer){
         console.log(buffer.toString("utf-8"));
     });
@@ -42,7 +44,8 @@ gulp.task('nodemonc',function(cb){
 });
 
 gulp.task('watchc',function(cb){
-    var child = childProcess.spawn('gulp',['watch']);
+    var gulpCmd = (process.platform == 'win32') ? 'node_modules\\.bin\\gulp.cmd' : 'gulp';
+    var child = childProcess.spawn(gulpCmd,['watch']);
     child.stdout.on('data',function(buffer){
         console.log(buffer.toString('utf-8'));
     });

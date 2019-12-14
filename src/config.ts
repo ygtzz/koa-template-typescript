@@ -15,7 +15,7 @@ const config:Config = {
         }
     },
     development:{
-        port: 3100,
+        port: 80,
         staticDirectory: path.resolve('./dist/static')
     },
     production:{
